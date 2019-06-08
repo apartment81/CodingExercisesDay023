@@ -5,39 +5,30 @@ import java.util.Random;
 
 
 public class PasswordValidator {
+
     public  boolean validate(String password) {
-        if (password.matches("((?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{8,20})"))
-            return true;
+        return password.matches("((?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{8,20})");
 
-        return false;
     }
 
-    public  boolean symbol(String password) {
-        if (password.matches(".*[@#$%].*"))
-            return true;
+     private boolean symbol(String password) {
+        return password.matches(".*[@#$%].*");
 
-        return false;
     }
 
-    public  boolean uppcase(String password) {
-        if (password.matches(".*[A-Z].*"))
-            return true;
+     private boolean uppcase(String password) {
+        return password.matches(".*[A-Z].*");
 
-        return false;
     }
 
-    public  boolean lowerCase(String password) {
-        if (password.matches(".*[a-z].*"))
-            return true;
+     private boolean lowerCase(String password) {
+        return password.matches(".*[a-z].*");
 
-        return false;
     }
 
-    public  boolean digit(String password) {
-        if (password.matches(".*\\d.*"))
-            return true;
+     private boolean digit(String password) {
+        return password.matches(".*\\d.*");
 
-        return false;
     }
 
     public  boolean validate2(String pass) {

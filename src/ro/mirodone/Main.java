@@ -6,46 +6,26 @@ public class Main {
 
     public static void main(String[] args) {
 
-        PasswordValidator passwordValidator = new PasswordValidator();
-
+        PasswordValidator2 passwordValidator = new PasswordValidator2();
 
         Scanner scan = new Scanner(System.in);
 
-        System.out.print("1. Generatae password 2. Test Password :");
-        int option = scan.nextInt();
+        System.out.print(" Type your Password :");
+        String password = scan.nextLine();
 
-        switch (option) {
-            case 1:
-                String pass = "";
-                System.out.print("Length of password >8 : ");
-                int len = scan.nextInt();
-                int count = 0;
-                while (true) {
-                    if (len < 8)
-                        break;
+        // code stops in either cases
+/*        if(passwordValidator.validate(password)){
+            System.out.println("Password accepted!");
+        }else {
+            System.out.println("Do not meet criteria, try again!");
+        }*/
 
-                    pass = passwordValidator.randomString(len);
-                    if (passwordValidator.validate(pass)) {
-                        break;
-                    } else {
-                        System.out.println("Retrying..");
-                        count++;
-                    }
-                }
-
-                System.out.print("Password generated = " + pass);
-                break;
-            case 2:
-                System.out.print("Password : ");
-                String password = scan.next();
-                if (passwordValidator.validate2(password)) {
-                    System.out.println("Pass");
-                }
-                break;
-            default:
-                break;
+        // code runs until the password meets required criteria
+        while (!passwordValidator.validate(password)) {
+            System.out.println("Do not meet criteria, try again!");
+            System.out.print(" Type your Password :");
+            password = scan.nextLine();
         }
-
-
+        System.out.println("Password accepted!");
     }
 }
